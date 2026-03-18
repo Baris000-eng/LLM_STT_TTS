@@ -20,7 +20,7 @@ async function runVoicePipeline(audioInputPath: string, sessionId: string) {
     try {
 
         const transcribedText = await stt.transcribe(audioInputPath);
-        if (!transcribedText) throw new Error("Ses çözülemedi.");
+        if (!transcribedText) throw new Error("Voice transcription failed or returned empty text.");
         console.log(`[USER]: ${transcribedText}`);
 
         const history = sessionMemory.get(sessionId) || [];
@@ -30,16 +30,16 @@ async function runVoicePipeline(audioInputPath: string, sessionId: string) {
             history
         );
 
-        // Niyet (Intent) bazlı işlem simülasyonu
+        // Intent-based processing (Task 2)
         const finalMessage = await intentHandler.handle(intent);
         const fullResponse = `${response} ${finalMessage}`;
 
-        // 4. Hafızayı Güncelle (Task 3)
+        // 4. Memory Update(Task 3)
         history.push({ role: "user", content: transcribedText });
         history.push({ role: "assistant", content: fullResponse });
         sessionMemory.set(sessionId, history);
 
-        // 5. Metin -> Ses (TTS)
+        // 5. Text to Speech (TTS)
         await tts.speak(fullResponse, `output_${sessionId}.mp3`);
 
         PipelineLogger.logLatency('Total Pipeline Time', pipelineStart);
@@ -52,6 +52,5 @@ async function runVoicePipeline(audioInputPath: string, sessionId: string) {
     }
 }
 
-// Örnek Çalıştırma
-// Not: 'input.wav' dosyasının root dizinde olduğundan emin olun
+
 runVoicePipeline('./input.wav', 'session_123');

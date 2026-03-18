@@ -1,6 +1,6 @@
 
-LLM (GPT-4o): "Selected for its advanced reasoning in intent extraction and native support for structured outputs, ensuring high accuracy in triggering the specific insurance workflows required."
+LLM (GPT-4o): "Selected for its advanced reasoning in intent extraction and native support for structured outputs, ensuring high accuracy in triggering the specific insurance workflows required. It ha a high reasoning score. In insurance, identifying the difference between a "Policy Enquiry" and a "Claim Report" requires a small implementation diffence, which I did by passing different keys in a valid JSON in the implementation. "
 
 STT (Whisper Local): "Chosen for data privacy and to leverage Apple Silicon's Neural Engine via whisper.cpp (node-whisper). This minimizes round-trip latency compared to cloud STT, as processing happens entirely on-device."
 
-TTS (OpenAI TTS): "Offers the best balance between natural speech inflection and low-latency streaming, providing a more human-like experience than the built-in macOS speech synthesizer, which often lacks fluid expression."
+TTS (TTS-1): "I chose OpenAI’s tts-1 model because it captures the subtle warmth and rhythm of human speech. When a customer calls to report a claim, they are often in a high-stress situation. A cold, robotic voice can feel dismissive; by using a model with natural inflection, the agent feels more like a supportive partner, helping to lower the customer's frustration and making the automated process feel more personal."
