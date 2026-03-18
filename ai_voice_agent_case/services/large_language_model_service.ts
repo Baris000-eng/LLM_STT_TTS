@@ -15,7 +15,7 @@ export class LLMService {
     `;
 
     const completion = await this.openai.chat.completions.create({
-      model: "gpt-4-turbo-preview",
+      model: "gpt-4o", // 'gpt-4o' is optimized for lowest latency 
       messages: [{ role: "system", content: systemPrompt }, ...history, { role: "user", content: text }],
       response_format: { type: "json_object" }
     });
