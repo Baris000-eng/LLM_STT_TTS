@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "node-whisper": "^2026.3.3",
-    "openai": "^4.0.0"
+    "openai": "^4.104.0"
   }
 }

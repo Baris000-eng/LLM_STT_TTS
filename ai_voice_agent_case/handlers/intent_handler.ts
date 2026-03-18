@@ -7,11 +7,11 @@ export class IntentHandler {
         return "I'm checking your policy status now. Everything looks active.";
       case 'report_claim':
         // Task 1: Simulate the next step
-        return "I've initiated a damage report. Can you describe the incident?";
+        return "I have initiated a damage report. Can you describe the incident?";
       case 'schedule_appointment':
         return "I can help with that. Are you looking for a morning or afternoon slot?";
       default:
-        return "I'm not sure I understood. Could you repeat that for our insurance assistant?";
+        return "I am not sure I understood. Could you repeat that for our insurance assistant?";
     }
   }
 }

@@ -20,9 +20,35 @@ export class LLMService {
       response_format: { type: "json_object" }
     });
 
-    const result = JSON.parse(completion.choices[0].message.content!);
+    const content = completion.choices[0]?.message?.content;
+
+    if(!content) { 
+      return {response: "I am sorry, I have trouble thinking.", intent: 'fallback'};
+    }
+
+    const result = JSON.parse(content);
     console.log(`[LATENCY] LLM Processing: ${Date.now() - startTime}ms`);
     
-    return { response: result.reply, intent: result.intent };
+    return {response: result.reply, intent: result.intent};
+  }
+}
+
+const content = completion.choices[0]?.message?.content;
+
+    if (!content) {
+      return { response: "I'm sorry, I'm having trouble thinking.", intent: 'fallback' };
+    }
+
+    const result = JSON.parse(content);
+    
+    // Ensure the intent is valid based on your Type
+    const validIntents: Intent[] = ['policy_enquiry', 'report_claim', 'schedule_appointment', 'fallback'];
+    const finalIntent = validIntents.includes(result.intent) ? result.intent : 'fallback';
+
+    return { response: result.reply, intent: finalIntent };
+
+  } catch (error) {
+    console.error("LLM Error:", error);
+    return { response: "An error occurred.", intent: 'fallback' };
   }
 }
