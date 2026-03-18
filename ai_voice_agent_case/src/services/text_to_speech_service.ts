@@ -1,6 +1,7 @@
-import { OpenAI } from 'openai';
-import fs from 'fs';
-import { PipelineLogger } from '../../utils/logger.js';
+import OpenAI from "openai";
+import fs from "fs";
+import { Buffer } from "buffer"; 
+import { PipelineLogger } from "../utils/logger.js";
 
 export class TTSService {
   private openai = new OpenAI();
@@ -18,6 +19,6 @@ export class TTSService {
     await fs.promises.writeFile(outputPath, buffer);
     
     PipelineLogger.logLatency('TTS (OpenAI)', start);
-    PipelineLogger.info(`Audio saved to ${outputPath}`);
+    PipelineLogger.info(`Audio is saved to ${outputPath}`);
   }
 }

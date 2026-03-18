@@ -1,0 +1,1 @@
+AI is used in the typescript function definitions, interface definitions, and an overview of how to setup the modular structure and development environment of the project, with %40 usage overall.

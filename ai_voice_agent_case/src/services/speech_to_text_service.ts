@@ -1,4 +1,4 @@
-import { PipelineLogger } from '../../utils/logger.js';
+import { PipelineLogger } from '../utils/logger.js';
 // Note: You may need 'brew install whisper-cpp' or a node wrapper
 // @ts-ignore - node-whisper often lacks built-in types
 import whisper from 'node-whisper'; 

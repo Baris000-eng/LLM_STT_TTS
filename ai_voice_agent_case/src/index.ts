@@ -1,8 +1,8 @@
-import { STTService } from './src/services/speech_to_text_service.js';
-import { LLMService } from './src/services/large_language_model_service.js';
-import { TTSService } from './src/services/text_to_speech_service.js';
+import { STTService } from './services/speech_to_text_service.ts';
+import { LLMService } from './services/large_language_model_service.ts';
+import { TTSService } from './services/text_to_speech_service.ts';
 import { IntentHandler } from './handlers/intent.handler.ts';
-import { PipelineLogger } from './utils/logger.ts';
+import { PipelineLogger } from './utils/logger.js';
 
 // Using a more specific type for session history
 interface ChatMessage {
