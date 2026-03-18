@@ -38,7 +38,7 @@ body {
     top: calc(var(--curve-size) * -1); /* Moves it exactly above the tab */
     border-bottom-left-radius: var(--curve-size);
     /* This shadow creates the 'fill' that matches the tab color */
-    box-shadow: 0 10px 0 0 var(--tab-color);
+    box-shadow: 0 15px 0 0 var(--tab-color);
 }
 
 /* The Bottom Inverted Curve */
@@ -46,5 +46,5 @@ body {
     bottom: calc(var(--curve-size) * -1); /* Moves it exactly below the tab */
     border-top-left-radius: var(--curve-size);
     /* This shadow creates the 'fill' that matches the tab color */
-    box-shadow: 0 -10px 0 0 var(--tab-color);
+    box-shadow: 0 -15px 0 0 var(--tab-color);
 }
